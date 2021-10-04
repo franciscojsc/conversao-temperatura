@@ -1,34 +1,19 @@
-# Deployment da aplicação web
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-conversao-temperatura
+  name: conversao-temperatura-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web-conversao-temperatura
+      app: conversao-temperatura
   template:
     metadata:
       labels:
-        app: web-conversao-temperatura
+        app: conversao-temperatura
     spec:
       containers:
-        - name: container-conversao-temperatura
+        - name: conversao-temperatura
           image: franciscojsc/conversao-temperatura:v1
           ports:
             - containerPort: 8080
-
----
-# Service da aplicação web
-apiVersion: v1
-kind: Service
-metadata:
-  name: service-conversao-temperatura
-spec:
-  selector:
-    app: web-conversao-temperatura
-  ports:
-    - port: 80
-      targetPort: 8080
-  type: LoadBalancer
