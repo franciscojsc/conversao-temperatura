@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v2.6.1
         with:
           context: ./src
-          file: Dockerfile
+          file: ./src/Dockerfile
           push: true
           tags: |
             franciscojsc/conversao-temperatura:latest
